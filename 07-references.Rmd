@@ -1,0 +1,12 @@
+# Bibliografía {-}
+
+Ohhh ma, llegamos a las referencias y aparecen en el índice y bien cabeceadas en su propio capítulo 
+\newline
+
+ 
+
+ <!-- `r if (knitr::is_html_output()) '
+# References {-}
+'` --> 
+
+<div id="refs"></div>

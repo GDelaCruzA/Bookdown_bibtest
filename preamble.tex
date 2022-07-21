@@ -1,0 +1,57 @@
+% acumulado de diversas fuentes... la mayoría perdidas, sorry
+% única línea en el ejemplo \usepackage{booktabs}
+%linea para evitar error de bookdown 
+%You can't use `macro parameter character #` in vertical mode
+%  otra opcion es \usepackage{lscape}
+%\usepackage{pdflscape} comentado por el header-include en index.rmd
+% seccion 6.1 del manual de bookdown latex-preamble.html
+%para cambiar el font en stackoverflow
+\usepackage{fontspec}
+%\setmainfont{Arial}
+%bloquemos el Sans
+%\setmainfont{Liberation Sans}
+%
+\usepackage{booktabs}
+%para regular una línea después de cada párrafo:
+%https://tex.stackexchange.com/questions/135134/how-to-add-an-empty-line-between-paragraphs
+\usepackage{parskip}
+% soporte para tablas largas; bookdown text
+\usepackage{longtable}
+% se agrega longtable = TRUE a knitr::kable
+% de Berry how to Thesis
+\usepackage[none]{hyphenat}
+\pagestyle{plain}
+\raggedbottom 
+%Writing a book with bookdown in foreign languages _
+%Anh Hoang Duc (2020-09-26 5_35_46 PM).html
+%\usepackage[utf8]{inputenc} no se usa: ignored with utf8 based engines
+% \usepackage[spanish]{babel} error de redundancia
+% al procesar siguiente bloque
+% de la doc formal
+%\usepackage[spanish, es-tabla]{babel}
+%bookdown_intro_sp.pdf Fernández-Casal y Cotos-Yáñez, 2018
+\ifxetex
+  \usepackage{polyglossia}
+  \setmainlanguage{spanish}
+ % Tabla en lugar de cuadro
+  \gappto\captionsspanish{\renewcommand{\tablename}{Tabla}
+          \renewcommand{\listtablename}{Índice de tablas}}
+\else
+  \usepackage[spanish,es-tabla]{babel}
+\fi
+% define la paginación con numerales romanos hasta antes del primer capítulo
+\frontmatter
+%para definir el margen del escrito para todos sus lados
+\usepackage[margin=1.0in]{geometry}
+% solucion a bibliografia en el índice en pdf en libro
+% por ahora, comentar para el Bookdown_bibtest
+% https://github.com/rstudio/bookdown/issues/192
+%\usepackage{makeidx}
+%\makeindex
+% %\usepackage[nottoc]{tocbibind}
+%\usepackage{tocbibind}
+% para que se procese en índice de contenido, agregar:
+\usepackage{makeidx}
+\makeindex
+% Then insert \printindex at the end of your book through the YAML option includes -> after_body.
+% 

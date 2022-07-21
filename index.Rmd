@@ -1,0 +1,135 @@
+---
+title: "A Minimal Book Example"
+author: "John Doe"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib, Zotero-Exported-Items.json]
+csl: CICIMAR-Oceanides20200122-ISBN.csl
+link-citations: yes
+lof: yes
+lot: yes
+indent: true
+# papersize: letterpaper
+fontsize: 12pt
+#  margin: 1in especificado globalmente en preamble.tex
+
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+# falta geometry: 'paperwidth=160mm, paperheight=240mm, margin=2cm, bindingoffset=0cm'
+
+description: CICIMAR-Oceanides20200122-ISBN.cs
+  This is a minimal example of using the bookdown package to write a book.
+  The HTML output format for this example is bookdown::gitbook,
+  set in the _output.yml file.
+github-repo: rstudio/bookdown-demo
+# editor options: permite cambiar del modo visual al modo fuente y visceversa
+# manteniendo la sincronía de la edición en ambos modos
+editor_options:
+  markdown:
+    canonical: true
+    references:
+      location: block
+# location donde van las references, puede ser 'block', 'section' o 'document'
+---
+
+```{=html}
+<!-- 
+#```{r, code=readLines("src/init.R"), include = FALSE}
+# todo el código de preparación, declaraciones, funciones, etc en un archivo de inicio
+# ejemplo de F:\00_GithubRepos\phdThesisMontesMariana
+#```
+--->
+```
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = "center", dev = c("pdf","png"), fig.path = "figuras")
+# en la configuración de output se define keep_md = true para guardar las figs
+library(tidyverse)
+Pvalue <- function(p) {
+  if (p < 0.001) {
+    return ("p < 0.001")
+  } else if (p < 0.01) {
+    return ("p < 0.01")
+  } else if (p < 0.05) {
+    return ("p < 0.05")
+  } else {
+    template <- r"(p $\approx$ X)"
+    return (str_glue("{str_replace(template, 'X', as.character(round(p, 3)))}"))
+  }
+}
+```
+
+\mainmatter
+
+# About
+
+This is a *sample* book written in **Markdown**\index{markdown}. You can use anything that Pandoc's Markdown supports; for example, a math equation\index{ecuación} $a^2 + b^2 = c^2$ según @eddelbuettel2017ExtendingBrief.
+
+## Usage
+
+Each **bookdown**\index{bookdown} chapter\index{capítulo} is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+
+Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
+
+The `index.Rmd` file is required\index{obligatorio}, and is also your first book chapter. It will be the homepage when you render the book \index{libro}.
+
+## Render book
+
+You can render the HTML version of this example book without changing anything:
+
+1.  Find the **Build** pane in the RStudio IDE, and
+
+2.  Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
+
+Or build the book from the R console:
+
+```{r, eval=FALSE}
+bookdown::render_book()
+```
+
+To render this example to PDF \index{PDF} as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX \index{TinyTeX}(which includes XeLaTeX): <https://yihui.org/tinytex/>.
+
+## Preview book \index{vista previa}
+
+As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
+
+```{r eval=FALSE}
+bookdown::serve_book()
+```
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+Esta es la prueba en modo visual para insertar \index{insertar}directo una referencia solo con la arroba @wickham2019Advanced y los demás [@wickham2019Advanced; @xie2015]. En realidad no fununcia; sin embargo, en el modo visual, el atajo Ctrl+SHift+F8 abre el manejador de citas y permite seleccionar la(s) deseada(s) para insertar la bibkey [@R-base].
+
+La primera prueba es con la base generada directo por Zotero \index{Zotero}(Export selected as BibTeX, @saldierna-calapiz2018Efectored).
+
+@ahmad2016UsingFisher establece que @anscombe1973GraphsStatistical está totalmente equivocado al insertar directo desde Zotero y agregarla al archivo de bibliografía [@bravo2016Teachinghigher].
+
+Lo que sigue se supone que es ***Markdown extended***:
+
+Por ejemplo, la definición de términos
+
+hábrase visto:
+
+:   expresión choyera de asombro!
+
+relación:
+
+:   solo para acompletar el punto; ponemos mucho texto para ver como maneja el párrafo. As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console
+
+También hay una lista de pendientes, parecido a la lista ordenada o no
+
+-   [ ] Write the press release
+-   [ ] Update the website
+-   [ ] Contact the media
+
+Así como el resalte de ==lo más importante en el texto== y ver si fununcia. Este marcador extendido para resaltar no es interpretado en **PDF** (por lo menos).
+
+La referencia la ponemos a pie de página forzada [^index-1]. El formato para insertarlo es \^[texto del pie de página]; RMarkdown lo interpreta y lo deja numerado y estandarizado -como aparece en el *Rmd*-.
+
+[^index-1]: <https://www.markdownguide.org/cheat-sheet>
