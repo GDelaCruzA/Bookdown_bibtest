@@ -1,5 +1,16 @@
 book_filename: 'bookdown_bibtest'
 output_dir: libro
+rmd_files: [
+  index.Rmd,
+  00_antes-frontmatter.Rmd,
+  00-realcap1.Rmd,
+  01-intro.Rmd,
+  02-cross-refs.Rmd,
+  03-parts.Rmd,
+  04-citations.Rmd,
+  05-blocks.Rmd,
+  06-share.Rmd,
+  07-references.Rmd]
 delete_merged_file: true
 language:
   label:

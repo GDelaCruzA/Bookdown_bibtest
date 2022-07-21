@@ -1,0 +1,41 @@
+## Acta de Revisión {-}
+
+Los subtítulos de segundo nivel sin numeración en el índice
+
+\newpage
+
+
+## Carta de Sesión de Derechos {-}
+
+Aquí va la carta.
+
+\newpage
+
+## Dedicatoria {-}
+
+Generalmente una página con la dedicatoria
+
+\newpage
+
+## Agradecimientos {-}
+
+Todo el rollo de agradecimiento a personas e instituciones, incluyendo al comité.
+
+\newpage
+
+## Glosario {-}
+
+faltaría introducir el orden de Lista de Figuras y lista de tablas
+
+\newpage
+
+## Resumen {-}
+
+uufff aquí va el resumen
+
+\newpage
+
+## Abstract {-}
+
+at the end!!!
+
