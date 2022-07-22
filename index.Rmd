@@ -7,8 +7,9 @@ documentclass: book
 bibliography: [book.bib, packages.bib, Zotero-Exported-Items.json]
 csl: CICIMAR-Oceanides20200122-ISBN.csl
 link-citations: yes
-lof: yes
-lot: yes
+# lof: yes
+# lot: yes
+toc: false
 indent: true
 # papersize: letterpaper
 fontsize: 12pt

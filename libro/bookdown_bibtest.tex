@@ -171,8 +171,8 @@
 % por ahora, comentar para el Bookdown_bibtest
 % https://github.com/rstudio/bookdown/issues/192
 %\usepackage{makeidx}
-%\makeindex
-% %\usepackage[nottoc]{tocbibind}
+% para indexar apéndices y listas de figs y tablas
+\usepackage[nottoc]{tocbibind}
 %\usepackage{tocbibind}
 % para que se procese en índice de contenido, agregar:
 \usepackage{makeidx}
@@ -207,12 +207,8 @@
 \begin{document}
 \maketitle
 
-{
-\setcounter{tocdepth}{1}
-\tableofcontents
-}
-\listoffigures
-\listoftables
+\clearpage
+
 \newpage
 
 \hypertarget{acta-de-revisiuxf3n}{%
@@ -247,6 +243,12 @@ Todo el rollo de agradecimiento a personas e instituciones, incluyendo al comit�
 
 \newpage
 
+\tableofcontents
+\listoffigures
+\listoftables
+
+\newpage
+
 \hypertarget{glosario}{%
 \section*{Glosario}\label{glosario}}
 \addcontentsline{toc}{section}{Glosario}
@@ -259,7 +261,7 @@ faltaría introducir el orden de Lista de Figuras y lista de tablas
 \section*{Resumen}\label{resumen}}
 \addcontentsline{toc}{section}{Resumen}
 
-uufff aquí va el resumen
+uufff aquí va el resumen. No olvidar las palabras clave
 
 \newpage
 
@@ -267,7 +269,7 @@ uufff aquí va el resumen
 \section*{Abstract}\label{abstract}}
 \addcontentsline{toc}{section}{Abstract}
 
-at the end!!!
+at the end!!! Don't forget the keywords
 
 \mainmatter
 

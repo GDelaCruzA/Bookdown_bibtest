@@ -1,3 +1,5 @@
+\clearpage
+
 \newpage
 
 ## Acta de Revisión {-}
@@ -25,6 +27,12 @@ Todo el rollo de agradecimiento a personas e instituciones, incluyendo al comit�
 
 \newpage
 
+\tableofcontents
+\listoffigures
+\listoftables
+
+\newpage
+
 ## Glosario {-}
 
 faltaría introducir el orden de Lista de Figuras y lista de tablas
@@ -33,11 +41,11 @@ faltaría introducir el orden de Lista de Figuras y lista de tablas
 
 ## Resumen {-}
 
-uufff aquí va el resumen
+uufff aquí va el resumen. No olvidar las palabras clave
 
 \newpage
 
 ## Abstract {-}
 
-at the end!!!
+at the end!!! Don't forget the keywords
 
