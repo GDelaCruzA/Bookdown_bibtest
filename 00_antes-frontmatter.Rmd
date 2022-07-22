@@ -1,3 +1,5 @@
+\newpage
+
 ## Acta de Revisión {-}
 
 Los subtítulos de segundo nivel sin numeración en el índice
