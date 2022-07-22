@@ -24,6 +24,9 @@ Generalmente una página con la dedicatoria
 ## Agradecimientos {-}
 
 Todo el rollo de agradecimiento a personas e instituciones, incluyendo al comité.
+https://community.rstudio.com/t/bookdown-adding-abstract-before-the-table-of-contents/47149/5
+
+https://stackoverflow.com/questions/56637936/how-to-add-list-of-figures-and-list-of-tables-to-the-table-of-content-with-r-mar
 
 \newpage
 

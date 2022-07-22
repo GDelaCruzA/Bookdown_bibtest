@@ -9,6 +9,7 @@ csl: CICIMAR-Oceanides20200122-ISBN.csl
 link-citations: yes
 # lof: yes
 # lot: yes
+# https://community.rstudio.com/t/bookdown-adding-abstract-before-the-table-of-contents/47149/5
 toc: false
 indent: true
 # papersize: letterpaper

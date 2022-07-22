@@ -26,8 +26,10 @@
 %Anh Hoang Duc (2020-09-26 5_35_46 PM).html
 %\usepackage[utf8]{inputenc} no se usa: ignored with utf8 based engines
 % \usepackage[spanish]{babel} error de redundancia
-% al procesar siguiente bloque
-% de la doc formal
+% cambiar los títulos de las listas
+% https://es.overleaf.com/learn/latex/Lists_of_tables_and_figures
+\renewcommand{\listfigurename}{Lista de figuras}
+\renewcommand{\listtablename}{Lista de tablas}
 %\usepackage[spanish, es-tabla]{babel}
 %bookdown_intro_sp.pdf Fernández-Casal y Cotos-Yáñez, 2018
 \ifxetex
@@ -35,7 +37,7 @@
   \setmainlanguage{spanish}
  % Tabla en lugar de cuadro
   \gappto\captionsspanish{\renewcommand{\tablename}{Tabla}
-          \renewcommand{\listtablename}{Índice de tablas}}
+          \renewcommand{\listtablename}{Lista de tablas}}
 \else
   \usepackage[spanish,es-tabla]{babel}
 \fi
@@ -48,6 +50,7 @@
 % https://github.com/rstudio/bookdown/issues/192
 %\usepackage{makeidx}
 % para indexar apéndices y listas de figs y tablas
+% https://stackoverflow.com/questions/56637936/how-to-add-list-of-figures-and-list-of-tables-to-the-table-of-content-with-r-mar
 \usepackage[nottoc]{tocbibind}
 %\usepackage{tocbibind}
 % para que se procese en índice de contenido, agregar:
