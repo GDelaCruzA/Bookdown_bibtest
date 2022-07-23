@@ -1,0 +1,12 @@
+# Acta de revisión  {-}
+
+título del capítulo en blanco...
+
+
+Los subtítulos de segundo nivel sin numeración en el índice
+<!-- 
+\thispagestyle{empty}
+\mbox
+
+\newpage
+I am a comment! -->

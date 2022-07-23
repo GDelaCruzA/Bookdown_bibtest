@@ -2,7 +2,14 @@ book_filename: 'bookdown_bibtest'
 output_dir: libro
 rmd_files: [
   index.Rmd,
-  00_antes-frontmatter.Rmd,
+  # 00_antes-frontmatter.Rmd,
+  00_actaderevision.Rmd,
+  00_cartasesionderechos.Rmd,
+  00_dedicatoria.Rmd,
+  00_agradecimientos.Rmd,
+  00_glosario.Rmd,
+  00_resumen.Rmd,
+  00_abstract.Rmd,
   00-realcap1.Rmd,
   01-intro.Rmd,
   02-cross-refs.Rmd,

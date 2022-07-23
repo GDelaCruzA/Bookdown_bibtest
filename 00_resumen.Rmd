@@ -1,0 +1,5 @@
+# Resumen {-}
+
+uufff aquí va el resumen. No olvidar las palabras clave
+
+\newpage

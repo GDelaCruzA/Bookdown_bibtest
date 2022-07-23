@@ -12,12 +12,14 @@ bookdown::gitbook:
 bookdown::pdf_document2:
   includes:
     in_header: preamble.tex
+    # before_body: before_body.tex
     after_body: after_body.tex
+  number_sections: false
   latex_engine: xelatex
   citation_package: default
   pandoc_args: [ "--csl", "CICIMAR-Oceanides20200122-ISBN.csl" ]
   keep_tex: yes
-  keep_md: false
+  keep_md: true
   
 bookdown::epub_book:
   pandoc_args: [ "--csl", "CICIMAR-Oceanides20200122-ISBN.csl" ]

@@ -4,7 +4,7 @@
 %
 \documentclass[
   12pt,
-]{book}
+  twoside]{book}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
 \usepackage{iftex}
@@ -98,7 +98,7 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
@@ -150,8 +150,6 @@
 %Anh Hoang Duc (2020-09-26 5_35_46 PM).html
 %\usepackage[utf8]{inputenc} no se usa: ignored with utf8 based engines
 % \usepackage[spanish]{babel} error de redundancia
-% al procesar siguiente bloque
-% de la doc formal
 %\usepackage[spanish, es-tabla]{babel}
 %bookdown_intro_sp.pdf Fernández-Casal y Cotos-Yáñez, 2018
 \ifxetex
@@ -159,19 +157,28 @@
   \setmainlanguage{spanish}
  % Tabla en lugar de cuadro
   \gappto\captionsspanish{\renewcommand{\tablename}{Tabla}
-          \renewcommand{\listtablename}{Índice de tablas}}
+          \renewcommand{\listtablename}{Lista de tablas}}
+          
 \else
   \usepackage[spanish,es-tabla]{babel}
 \fi
+% cambiar los títulos de las listas
+% https://es.overleaf.com/learn/latex/Lists_of_tables_and_figures
+% https://latexref.xyz/Table-of-contents-etc_002e.html
+\addto\captionsspanish{\renewcommand{\listfigurename}{Lista de figuras}}
+\addto\captionsspanish{\renewcommand{\contentsname}{Índice de contenido}}
+%\renewcommand{\listfigurename}{Lista de figuras}
+%\renewcommand{\listtablename}{Lista de tablas}
 % define la paginación con numerales romanos hasta antes del primer capítulo
 \frontmatter
 %para definir el margen del escrito para todos sus lados
 \usepackage[margin=1.0in]{geometry}
-% solucion a bibliografia en el índice en pdf en libro
-% por ahora, comentar para el Bookdown_bibtest
+% solucion a bibliografia en el í5ndice en pdf en libro
+% por ahora, comentar para el Bookdown_bibtest"   "
 % https://github.com/rstudio/bookdown/issues/192
 %\usepackage{makeidx}
 % para indexar apéndices y listas de figs y tablas
+% https://stackoverflow.com/questions/56637936/how-to-add-list-of-figures-and-list-of-tables-to-the-table-of-content-with-r-mar
 \usepackage[nottoc]{tocbibind}
 %\usepackage{tocbibind}
 % para que se procese en índice de contenido, agregar:
@@ -185,61 +192,60 @@
 
 \title{A Minimal Book Example}
 \author{John Doe}
-\date{2022-07-21}
+\date{2022-07-22}
 
 \usepackage{amsthm}
-\newtheorem{theorem}{Teorema}[chapter]
-\newtheorem{lemma}{Lema}[chapter]
-\newtheorem{corollary}{Corolario}[chapter]
-\newtheorem{proposition}{Proposición}[chapter]
-\newtheorem{conjecture}{Conjecture}[chapter]
+\newtheorem{theorem}{Teorema}
+\newtheorem{lemma}{Lema}
+\newtheorem{corollary}{Corolario}
+\newtheorem{proposition}{Proposición}
+\newtheorem{conjecture}{Conjecture}
 \theoremstyle{definition}
-\newtheorem{definition}{Definición}[chapter]
+\newtheorem{definition}{Definición}
 \theoremstyle{definition}
-\newtheorem{example}{Ejemplo}[chapter]
+\newtheorem{example}{Ejemplo}
 \theoremstyle{definition}
-\newtheorem{exercise}{Ejercicio}[chapter]
+\newtheorem{exercise}{Ejercicio}
 \theoremstyle{definition}
-\newtheorem{hypothesis}{Hypothesis}[chapter]
+\newtheorem{hypothesis}{Hypothesis}
 \theoremstyle{remark}
 \newtheorem*{remark}{Nota: }
 \newtheorem*{solution}{Solución}
 \begin{document}
 \maketitle
 
-\clearpage
-
-\newpage
-
 \hypertarget{acta-de-revisiuxf3n}{%
-\section*{Acta de Revisión}\label{acta-de-revisiuxf3n}}
-\addcontentsline{toc}{section}{Acta de Revisión}
+\chapter*{Acta de revisión}\label{acta-de-revisiuxf3n}}
+\addcontentsline{toc}{chapter}{Acta de revisión}
+
+título del capítulo en blanco\ldots{}
 
 Los subtítulos de segundo nivel sin numeración en el índice
 
-\newpage
-
 \hypertarget{carta-de-sesiuxf3n-de-derechos}{%
-\section*{Carta de Sesión de Derechos}\label{carta-de-sesiuxf3n-de-derechos}}
-\addcontentsline{toc}{section}{Carta de Sesión de Derechos}
+\chapter*{Carta de Sesión de Derechos}\label{carta-de-sesiuxf3n-de-derechos}}
+\addcontentsline{toc}{chapter}{Carta de Sesión de Derechos}
 
 Aquí va la carta.
 
 \newpage
 
 \hypertarget{dedicatoria}{%
-\section*{Dedicatoria}\label{dedicatoria}}
-\addcontentsline{toc}{section}{Dedicatoria}
+\chapter*{Dedicatoria}\label{dedicatoria}}
+\addcontentsline{toc}{chapter}{Dedicatoria}
 
 Generalmente una página con la dedicatoria
 
 \newpage
 
 \hypertarget{agradecimientos}{%
-\section*{Agradecimientos}\label{agradecimientos}}
-\addcontentsline{toc}{section}{Agradecimientos}
+\chapter*{Agradecimientos}\label{agradecimientos}}
+\addcontentsline{toc}{chapter}{Agradecimientos}
 
 Todo el rollo de agradecimiento a personas e instituciones, incluyendo al comité.
+\url{https://community.rstudio.com/t/bookdown-adding-abstract-before-the-table-of-contents/47149/5}
+
+\url{https://stackoverflow.com/questions/56637936/how-to-add-list-of-figures-and-list-of-tables-to-the-table-of-content-with-r-mar}
 
 \newpage
 
@@ -250,31 +256,32 @@ Todo el rollo de agradecimiento a personas e instituciones, incluyendo al comit�
 \newpage
 
 \hypertarget{glosario}{%
-\section*{Glosario}\label{glosario}}
-\addcontentsline{toc}{section}{Glosario}
+\chapter*{Glosario}\label{glosario}}
+\addcontentsline{toc}{chapter}{Glosario}
 
 faltaría introducir el orden de Lista de Figuras y lista de tablas
 
 \newpage
 
 \hypertarget{resumen}{%
-\section*{Resumen}\label{resumen}}
-\addcontentsline{toc}{section}{Resumen}
+\chapter*{Resumen}\label{resumen}}
+\addcontentsline{toc}{chapter}{Resumen}
 
 uufff aquí va el resumen. No olvidar las palabras clave
 
 \newpage
 
 \hypertarget{abstract}{%
-\section*{Abstract}\label{abstract}}
-\addcontentsline{toc}{section}{Abstract}
+\chapter*{Abstract}\label{abstract}}
+\addcontentsline{toc}{chapter}{Abstract}
 
 at the end!!! Don't forget the keywords
 
 \mainmatter
 
 \hypertarget{introducciuxf3n-aka.-about}{%
-\chapter{Introducción (aka. About)}\label{introducciuxf3n-aka.-about}}
+\chapter*{Introducción (aka. About)}\label{introducciuxf3n-aka.-about}}
+\addcontentsline{toc}{chapter}{Introducción (aka. About)}
 
 This is a \emph{sample} book written in \textbf{Markdown}\index{markdown}. You can use anything that Pandoc's Markdown supports; for example, a math equation\index{ecuación} \(a^2 + b^2 = c^2\) según Eddelbuettel \& Balamuta (\protect\hyperlink{ref-eddelbuettel2017ExtendingBrief}{2017}).
 
@@ -357,7 +364,8 @@ Así como el resalte de ==lo más importante en el texto== y ver si fununcia. Es
 La referencia la ponemos a pie de página forzada \footnote{\url{https://www.markdownguide.org/cheat-sheet}}. El formato para insertarlo es \^{}{[}texto del pie de página{]}; RMarkdown lo interpreta y lo deja numerado y estandarizado -como aparece en el \emph{Rmd}-.
 
 \hypertarget{hello-bookdown}{%
-\chapter{Hello bookdown}\label{hello-bookdown}}
+\chapter*{Hello bookdown}\label{hello-bookdown}}
+\addcontentsline{toc}{chapter}{Hello bookdown}
 
 All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (\texttt{\#}) per .Rmd file.
 
@@ -391,7 +399,8 @@ When you click the \textbf{Knit} button a document will be generated that includ
 \end{verbatim}
 
 \hypertarget{cross}{%
-\chapter{Cross-references}\label{cross}}
+\chapter*{Cross-references}\label{cross}}
+\addcontentsline{toc}{chapter}{Cross-references}
 
 Cross-references \index{referencia cruzada}make it easier for your readers to find and link to elements in your book.
 
@@ -439,7 +448,7 @@ See Figure \ref{fig:nice-fig}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{figurasnice-fig-1} 
+{\centering \includegraphics[width=0.8\linewidth]{figuras/nice-fig-1} 
 
 }
 
@@ -481,7 +490,8 @@ temperature & pressure\\
 \end{table}
 
 \hypertarget{parts}{%
-\chapter{Parts}\label{parts}}
+\chapter*{Parts}\label{parts}}
+\addcontentsline{toc}{chapter}{Parts}
 
 You can add parts \index{partes o secciones}to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file.
 
@@ -492,7 +502,8 @@ Add an unnumbered part: \texttt{\#\ (PART\textbackslash{}*)\ Act\ one\ \{-\}} (f
 Add an appendix \index{apéndices}as a special kind of un-numbered part: \texttt{\#\ (APPENDIX)\ Other\ stuff\ \{-\}} (followed by \texttt{\#\ A\ chapter}). Chapters in an appendix are prepended with letters instead of numbers.
 
 \hypertarget{footnotes-and-citations}{%
-\chapter{Footnotes and citations}\label{footnotes-and-citations}}
+\chapter*{Footnotes and citations}\label{footnotes-and-citations}}
+\addcontentsline{toc}{chapter}{Footnotes and citations}
 
 \hypertarget{footnotes}{%
 \section{Footnotes}\label{footnotes}}
@@ -510,7 +521,8 @@ Note that the \texttt{.bib} files need to be listed in the index.Rmd with the YA
 The RStudio Visual Markdown Editor \index{modo visual}can also make it easier to insert citations: \url{https://rstudio.github.io/visual-markdown-editing/\#/citations}
 
 \hypertarget{blocks}{%
-\chapter{Blocks}\label{blocks}}
+\chapter*{Blocks}\label{blocks}}
+\addcontentsline{toc}{chapter}{Blocks}
 
 \hypertarget{equations}{%
 \section{Equations}\label{equations}}
@@ -543,7 +555,8 @@ Read more here \url{https://bookdown.org/yihui/bookdown/markdown-extensions-by-b
 The R Markdown Cookbook provides more help on how to use custom blocks \index{bloque personal}to design your own callouts: \url{https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html}
 
 \hypertarget{sharing-your-book}{%
-\chapter{Sharing your book}\label{sharing-your-book}}
+\chapter*{Sharing your book}\label{sharing-your-book}}
+\addcontentsline{toc}{chapter}{Sharing your book}
 
 \hypertarget{publishing}{%
 \section{Publishing}\label{publishing}}

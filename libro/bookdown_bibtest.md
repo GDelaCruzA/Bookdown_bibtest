@@ -1,15 +1,24 @@
 ---
 title: "A Minimal Book Example"
 author: "John Doe"
-date: "2022-07-15"
+date: "2022-07-22"
 site: bookdown::bookdown_site
 documentclass: book
+classoption: twoside
 bibliography: [book.bib, packages.bib, Zotero-Exported-Items.json]
 csl: CICIMAR-Oceanides20200122-ISBN.csl
 link-citations: yes
-lof: yes
-lot: yes
+colorlinks: no
+# lof: yes
+# lot: yes
+# https://community.rstudio.com/t/bookdown-adding-abstract-before-the-table-of-contents/47149/5
+toc: false
 indent: true
+openright: yes
+# papersize: letterpaper
+fontsize: 12pt
+#  margin: 1in especificado globalmente en preamble.tex
+
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 # falta geometry: 'paperwidth=160mm, paperheight=240mm, margin=2cm, bindingoffset=0cm'
@@ -25,7 +34,7 @@ editor_options:
   markdown:
     canonical: true
     references:
-      location: block
+      location: document
 # location donde van las references, puede ser 'block', 'section' o 'document'
 ---
 
@@ -39,11 +48,86 @@ editor_options:
 ```
 
 
+<!--chapter:end:index.Rmd-->
+
+# Acta de revisión  {-}
+
+título del capítulo en blanco...
+
+
+Los subtítulos de segundo nivel sin numeración en el índice
+<!-- 
+\thispagestyle{empty}
+\mbox
+
+\newpage
+I am a comment! -->
+
+<!--chapter:end:00_actaderevision.Rmd-->
+
+# Carta de Sesión de Derechos {-}
+
+Aquí va la carta.
+
+\newpage
+
+<!--chapter:end:00_cartasesionderechos.Rmd-->
+
+# Dedicatoria {-}
+
+Generalmente una página con la dedicatoria
+
+\newpage
+
+<!--chapter:end:00_dedicatoria.Rmd-->
+
+# Agradecimientos {-}
+
+Todo el rollo de agradecimiento a personas e instituciones, incluyendo al comité.
+https://community.rstudio.com/t/bookdown-adding-abstract-before-the-table-of-contents/47149/5
+
+https://stackoverflow.com/questions/56637936/how-to-add-list-of-figures-and-list-of-tables-to-the-table-of-content-with-r-mar
+
+\newpage
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\newpage
+
+<!--chapter:end:00_agradecimientos.Rmd-->
+
+# Glosario {-}
+
+faltaría introducir el orden de Lista de Figuras y lista de tablas
+
+\newpage
+
+<!--chapter:end:00_glosario.Rmd-->
+
+# Resumen {-}
+
+uufff aquí va el resumen. No olvidar las palabras clave
+
+\newpage
+
+<!--chapter:end:00_resumen.Rmd-->
+
+# Abstract {-}
+
+at the end!!! Don't forget the keywords
+
+
+<!--chapter:end:00_abstract.Rmd-->
+
 \mainmatter
 
-# About
+# Introducción (aka. About) {-}
 
 This is a *sample* book written in **Markdown**\index{markdown}. You can use anything that Pandoc's Markdown supports; for example, a math equation\index{ecuación} $a^2 + b^2 = c^2$ según @eddelbuettel2017ExtendingBrief.
+
+Este primer capítulo numerado (00-realcap1.Rmd) después de sacarlo del index.Rmd. Se agregan los archivos complementarios del frontmatter que se numerarían en romanos y en el índice ver si aparecen...
 
 ## Usage
 
@@ -111,9 +195,9 @@ La referencia la ponemos a pie de página forzada [^index-1]. El formato para in
 
 [^index-1]: <https://www.markdownguide.org/cheat-sheet>
 
-<!--chapter:end:index.Rmd-->
+<!--chapter:end:00-realcap1.Rmd-->
 
-# Hello bookdown 
+# Hello bookdown {-}
 
 All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
 
@@ -143,7 +227,7 @@ print(Pvalue(0.07))
 
 <!--chapter:end:01-intro.Rmd-->
 
-# Cross-references {#cross}
+# Cross-references {-#cross} 
 
 Cross-references \index{referencia cruzada}make it easier for your readers to find and link to elements in your book.
 
@@ -171,7 +255,7 @@ plot(pressure, type = 'b', pch = 19)
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{figurasnice-fig-1} 
+{\centering \includegraphics[width=0.8\linewidth]{figuras/nice-fig-1} 
 
 }
 
@@ -213,7 +297,7 @@ temperature & pressure\\
 
 <!--chapter:end:02-cross-refs.Rmd-->
 
-# Parts
+# Parts {-}
 
 You can add parts \index{partes o secciones}to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file. 
 
@@ -228,7 +312,7 @@ Add an appendix \index{apéndices}as a special kind of un-numbered part: `# (APP
 
 <!--chapter:end:03-parts.Rmd-->
 
-# Footnotes and citations 
+# Footnotes and citations  {-}
 
 ## Footnotes
 
@@ -246,7 +330,7 @@ The RStudio Visual Markdown Editor \index{modo visual}can also make it easier to
 
 <!--chapter:end:04-citations.Rmd-->
 
-# Blocks
+# Blocks {-}
 
 ## Equations
 
@@ -279,7 +363,7 @@ The R Markdown Cookbook provides more help on how to use custom blocks \index{bl
 
 <!--chapter:end:05-blocks.Rmd-->
 
-# Sharing your book
+# Sharing your book {-}
 
 ## Publishing
 

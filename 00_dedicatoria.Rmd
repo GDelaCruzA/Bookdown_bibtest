@@ -1,0 +1,5 @@
+# Dedicatoria {-}
+
+Generalmente una página con la dedicatoria
+
+\newpage

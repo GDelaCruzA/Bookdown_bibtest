@@ -1,6 +1,6 @@
 \mainmatter
 
-# Introducción (aka. About)
+# Introducción (aka. About) {-}
 
 This is a *sample* book written in **Markdown**\index{markdown}. You can use anything that Pandoc's Markdown supports; for example, a math equation\index{ecuación} $a^2 + b^2 = c^2$ según @eddelbuettel2017ExtendingBrief.
 

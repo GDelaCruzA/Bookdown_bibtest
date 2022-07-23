@@ -26,10 +26,6 @@
 %Anh Hoang Duc (2020-09-26 5_35_46 PM).html
 %\usepackage[utf8]{inputenc} no se usa: ignored with utf8 based engines
 % \usepackage[spanish]{babel} error de redundancia
-% cambiar los títulos de las listas
-% https://es.overleaf.com/learn/latex/Lists_of_tables_and_figures
-\renewcommand{\listfigurename}{Lista de figuras}
-\renewcommand{\listtablename}{Lista de tablas}
 %\usepackage[spanish, es-tabla]{babel}
 %bookdown_intro_sp.pdf Fernández-Casal y Cotos-Yáñez, 2018
 \ifxetex
@@ -38,15 +34,23 @@
  % Tabla en lugar de cuadro
   \gappto\captionsspanish{\renewcommand{\tablename}{Tabla}
           \renewcommand{\listtablename}{Lista de tablas}}
+          
 \else
   \usepackage[spanish,es-tabla]{babel}
 \fi
+% cambiar los títulos de las listas
+% https://es.overleaf.com/learn/latex/Lists_of_tables_and_figures
+% https://latexref.xyz/Table-of-contents-etc_002e.html
+\addto\captionsspanish{\renewcommand{\listfigurename}{Lista de figuras}}
+\addto\captionsspanish{\renewcommand{\contentsname}{Índice de contenido}}
+%\renewcommand{\listfigurename}{Lista de figuras}
+%\renewcommand{\listtablename}{Lista de tablas}
 % define la paginación con numerales romanos hasta antes del primer capítulo
 \frontmatter
 %para definir el margen del escrito para todos sus lados
 \usepackage[margin=1.0in]{geometry}
-% solucion a bibliografia en el índice en pdf en libro
-% por ahora, comentar para el Bookdown_bibtest
+% solucion a bibliografia en el í5ndice en pdf en libro
+% por ahora, comentar para el Bookdown_bibtest"   "
 % https://github.com/rstudio/bookdown/issues/192
 %\usepackage{makeidx}
 % para indexar apéndices y listas de figs y tablas
