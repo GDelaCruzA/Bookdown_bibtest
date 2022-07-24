@@ -1,7 +1,7 @@
 ---
 title: "A Minimal Book Example"
 author: "John Doe"
-date: "2022-07-22"
+date: "2022-07-23"
 site: bookdown::bookdown_site
 documentclass: book
 classoption: twoside
@@ -56,6 +56,14 @@ título del capítulo en blanco...
 
 
 Los subtítulos de segundo nivel sin numeración en el índice
+
+
+Según Rob Knell en Introductory Markdown, el control del tamaño normal, \Large le sigue texto grande, \normalsize luego normal, \LARGE más grande y luego, \Huge grandísimo \normalsize y de nuevo normal.
+
+
+Según Rob Knell en Introductory Markdown, el control del tamaño normal, `\Large` le sigue texto grande, `\normalsize` luego normal, `\LARGE` más grande y luego, `\Huge` grandísimo `\normalsize` y de nuevo normal.
+
+
 <!-- 
 \thispagestyle{empty}
 \mbox
