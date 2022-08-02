@@ -14,10 +14,15 @@ bookdown::pdf_document2:
     in_header: preamble.tex
     # before_body: before_body.tex
     after_body: after_body.tex
-  number_sections: false
+  number_sections: true
   latex_engine: xelatex
   citation_package: default
   pandoc_args: [ "--csl", "CICIMAR-Oceanides20200122-ISBN.csl" ]
+  fig_cap: yes
+  toc-depth: 4
+  toc_appendix: true
+  toc_bib: true
+  secnumdepth: 3
   keep_tex: yes
   keep_md: true
   

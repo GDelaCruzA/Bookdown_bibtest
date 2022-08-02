@@ -43,12 +43,16 @@
 % https://latexref.xyz/Table-of-contents-etc_002e.html
 \addto\captionsspanish{\renewcommand{\listfigurename}{Lista de figuras}}
 \addto\captionsspanish{\renewcommand{\contentsname}{Índice de contenido}}
+%\https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/
+\addtocontents{toc}{~ \hfill\textbf{Página}\par}
+\addtocontents{lof}{~ \hfill\textbf{Página}\par}
+\addtocontents{lot}{~ \hfill\textbf{Página}\par}
 %\renewcommand{\listfigurename}{Lista de figuras}
 %\renewcommand{\listtablename}{Lista de tablas}
 % define la paginación con numerales romanos hasta antes del primer capítulo
 \frontmatter
 %para definir el margen del escrito para todos sus lados
-\usepackage[margin=1.0in]{geometry}
+%\usepackage[margin=1.5in]{geometry}
 % solucion a bibliografia en el í5ndice en pdf en libro
 % por ahora, comentar para el Bookdown_bibtest"   "
 % https://github.com/rstudio/bookdown/issues/192
@@ -60,5 +64,9 @@
 % para que se procese en índice de contenido, agregar:
 \usepackage{makeidx}
 \makeindex
-% Then insert \printindex at the end of your book through the YAML option includes -> after_body.
-% 
+% Then insert \printindex at the end of your book through the YAML option includes -> after_body.tex
+% https://bookdown.org/yihui/rmarkdown-cookbook/latex-header.html
+\usepackage{fancyhdr}
+%\pagestyle{fancy}
+% page number on the left of even pages and right of odd pages
+\fancyfoot[LE,RO]{\thepage}

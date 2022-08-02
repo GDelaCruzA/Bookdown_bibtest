@@ -1,12 +1,14 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
-  12pt,
+  11pt,
   twoside]{book}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
+\usepackage{setspace}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -16,6 +18,7 @@
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{Arial}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -23,15 +26,18 @@
   \usepackage[]{microtype}
   \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={A Minimal Book Example},
-  pdfauthor={John Doe},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
+\usepackage[left=1.0in, right=1.0in, top=1.25in, bottom=1.25in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -98,7 +104,7 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\setcounter{secnumdepth}{5}
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
@@ -167,12 +173,16 @@
 % https://latexref.xyz/Table-of-contents-etc_002e.html
 \addto\captionsspanish{\renewcommand{\listfigurename}{Lista de figuras}}
 \addto\captionsspanish{\renewcommand{\contentsname}{Índice de contenido}}
+%\https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/
+\addtocontents{toc}{~ \hfill\textbf{Página}\par}
+\addtocontents{lof}{~ \hfill\textbf{Página}\par}
+\addtocontents{lot}{~ \hfill\textbf{Página}\par}
 %\renewcommand{\listfigurename}{Lista de figuras}
 %\renewcommand{\listtablename}{Lista de tablas}
 % define la paginación con numerales romanos hasta antes del primer capítulo
 \frontmatter
 %para definir el margen del escrito para todos sus lados
-\usepackage[margin=1.0in]{geometry}
+%\usepackage[margin=1.5in]{geometry}
 % solucion a bibliografia en el í5ndice en pdf en libro
 % por ahora, comentar para el Bookdown_bibtest"   "
 % https://github.com/rstudio/bookdown/issues/192
@@ -184,35 +194,54 @@
 % para que se procese en índice de contenido, agregar:
 \usepackage{makeidx}
 \makeindex
-% Then insert \printindex at the end of your book through the YAML option includes -> after_body.
-% 
+% Then insert \printindex at the end of your book through the YAML option includes -> after_body.tex
+% https://bookdown.org/yihui/rmarkdown-cookbook/latex-header.html
+\usepackage{fancyhdr}
+%\pagestyle{fancy}
+% page number on the left of even pages and right of odd pages
+\fancyfoot[LE,RO]{\thepage}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={A Minimal Book Example},
+  pdfauthor={John Doe},
+  colorlinks=true,
+  linkcolor={Blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
 
 \title{A Minimal Book Example}
 \author{John Doe}
-\date{2022-07-23}
+\date{2022-07-31}
 
 \usepackage{amsthm}
-\newtheorem{theorem}{Teorema}
-\newtheorem{lemma}{Lema}
-\newtheorem{corollary}{Corolario}
-\newtheorem{proposition}{Proposición}
-\newtheorem{conjecture}{Conjecture}
+\newtheorem{theorem}{Teorema}[chapter]
+\newtheorem{lemma}{Lema}[chapter]
+\newtheorem{corollary}{Corolario}[chapter]
+\newtheorem{proposition}{Proposición}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
 \theoremstyle{definition}
-\newtheorem{definition}{Definición}
+\newtheorem{definition}{Definición}[chapter]
 \theoremstyle{definition}
-\newtheorem{example}{Ejemplo}
+\newtheorem{example}{Ejemplo}[chapter]
 \theoremstyle{definition}
-\newtheorem{exercise}{Ejercicio}
+\newtheorem{exercise}{Ejercicio}[chapter]
 \theoremstyle{definition}
-\newtheorem{hypothesis}{Hypothesis}
+\newtheorem{hypothesis}{Hypothesis}[chapter]
 \theoremstyle{remark}
 \newtheorem*{remark}{Nota: }
 \newtheorem*{solution}{Solución}
 \begin{document}
 \maketitle
+
+\setstretch{1.25}
+\fancyfoot[LE,RO]{\thepage}
 
 \hypertarget{acta-de-revisiuxf3n}{%
 \chapter*{Acta de revisión}\label{acta-de-revisiuxf3n}}
@@ -282,6 +311,7 @@ uufff aquí va el resumen. No olvidar las palabras clave
 at the end!!! Don't forget the keywords
 
 \mainmatter
+\fancyfoot[LE,RO]{\thepage}
 
 \hypertarget{introducciuxf3n-aka.-about}{%
 \chapter*{Introducción (aka. About)}\label{introducciuxf3n-aka.-about}}

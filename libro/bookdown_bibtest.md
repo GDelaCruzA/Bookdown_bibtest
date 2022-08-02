@@ -1,22 +1,28 @@
 ---
 title: "A Minimal Book Example"
 author: "John Doe"
-date: "2022-07-23"
+date: "2022-07-31"
 site: bookdown::bookdown_site
 documentclass: book
 classoption: twoside
 bibliography: [book.bib, packages.bib, Zotero-Exported-Items.json]
 csl: CICIMAR-Oceanides20200122-ISBN.csl
 link-citations: yes
-colorlinks: no
+colorlinks: yes
+linkcolor: Blue
 # lof: yes
 # lot: yes
 # https://community.rstudio.com/t/bookdown-adding-abstract-before-the-table-of-contents/47149/5
 toc: false
-indent: true
+#toc: true  toc, lof y lot entran después de las páginas protocolarias
+#lof: true  y se invocan despues de, en agradecimientos; aquí se evita el toc
+#lot: true
 openright: yes
+mainfont: Arial
+fontsize: 11pt
+linestretch: 1.25
+geometry: "left=1.0in, right=1.0in, top=1.25in, bottom=1.25in"
 # papersize: letterpaper
-fontsize: 12pt
 #  margin: 1in especificado globalmente en preamble.tex
 
 # url: your book url like https://bookdown.org/yihui/bookdown
@@ -47,6 +53,8 @@ editor_options:
 --->
 ```
 
+
+\fancyfoot[LE,RO]{\thepage}
 
 <!--chapter:end:index.Rmd-->
 
@@ -129,9 +137,11 @@ at the end!!! Don't forget the keywords
 
 <!--chapter:end:00_abstract.Rmd-->
 
+```{=tex}
 \mainmatter
-
-# Introducción (aka. About) {-}
+\fancyfoot[LE,RO]{\thepage}
+```
+# Introducción (aka. About) {.unnumbered}
 
 This is a *sample* book written in **Markdown**\index{markdown}. You can use anything that Pandoc's Markdown supports; for example, a math equation\index{ecuación} $a^2 + b^2 = c^2$ según @eddelbuettel2017ExtendingBrief.
 
@@ -199,9 +209,9 @@ También hay una lista de pendientes, parecido a la lista ordenada o no
 
 Así como el resalte de ==lo más importante en el texto== y ver si fununcia. Este marcador extendido para resaltar no es interpretado en **PDF** (por lo menos).
 
-La referencia la ponemos a pie de página forzada [^index-1]. El formato para insertarlo es \^[texto del pie de página]; RMarkdown lo interpreta y lo deja numerado y estandarizado -como aparece en el *Rmd*-.
+La referencia la ponemos a pie de página forzada [^00-realcap1-1]. El formato para insertarlo es \^[texto del pie de página]; RMarkdown lo interpreta y lo deja numerado y estandarizado -como aparece en el *Rmd*-.
 
-[^index-1]: <https://www.markdownguide.org/cheat-sheet>
+[^00-realcap1-1]: <https://www.markdownguide.org/cheat-sheet>
 
 <!--chapter:end:00-realcap1.Rmd-->
 
