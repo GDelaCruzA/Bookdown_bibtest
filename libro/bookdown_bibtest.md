@@ -1,7 +1,7 @@
 ---
 title: "A Minimal Book Example"
 author: "John Doe"
-date: "2022-07-31"
+date: "2022-08-09"
 site: bookdown::bookdown_site
 documentclass: book
 classoption: twoside
@@ -242,6 +242,17 @@ print(Pvalue(0.07))
 ```
 ## p $\approx$ 0.07
 ```
+Verificación de los caracteres de 'escape':
+
+Al asignar nombres a los objetos en R, se deben evitar los nombres que ya representan definiciones y funciones a lo largo del lenguaje. Estos incluyen, por ejemplo, `TRUE`, `FALSE`, `NULL`, `NA`, `NaN` e `Inf`. Además, no podemos tener nombres:
+
+* que comiencen con un número
+* que contengan espacios, dos puntos (:), coma (,) y punto y coma (;)
+* que contengan operadores (por ejemplo, *, +, -, ^, /, =, <, >, ==, etc.),
+* que contengan símbolos importantes para R (por ejemplo, @, #,?,!,%, &, |).
+* que contengan marcas diacríticas tales como á, é, í, ó, ú, ä, ö, ü, à, è, ì, ò, ù, ñ, õ, etc. 
+
+Un estilo más, usado con cierta frecuencia por autores de paquetes sobresalientes en el universo de R, usan el "estilo subrayado" o de "serpiente" (*underscore style* o *snake style*\index{snake style}), en el que cada parte del nombre compuesto está ligado por un guión bajo (_), de tal manera que el nombre del objeto podría quedar como `nombre_muy_largo_para_variable`. `get_all_vars()`, `collapse_rows()`, `divide_by_int()`, entre otras funciones, son ejemplos de este estilo.
 
 <!--chapter:end:01-intro.Rmd-->
 
